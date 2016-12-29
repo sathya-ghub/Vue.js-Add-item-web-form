@@ -18,6 +18,9 @@ new Vue({
         },
         euro: function (value) {
             return "€ " + value;
+        },
+        date: function(value){
+            return moment(value).format("dddd, MMM Do YY");
         }
     },
 
