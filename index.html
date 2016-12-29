@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Serif" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+  <div class="container" id="app">
+    <div class="page-header">
+      <h4>Add your items</h4>
+    </div>
+    <!-- Add items here -->
+    <div class="col-sm-6 col-md-6 col-lg-6">
+      <div class="form-group">
+        <label>Item name</label>
+        <input class="form-control" placeholder="Enter name" type="text" v-model="product.name" />
+      </div>
+      <div class="form-group">
+        <label>Item price</label>
+        <input class="form-control" placeholder="Enter price" type="text" v-model="product.price" />
+      </div>
+      <div class="form-group">
+        <label>Item description</label>
+        <input class="form-control" placeholder="Enter description" type="text" v-model="product.description" />
+      </div>
+      <div class="form-group">
+        <label>Date available</label>
+        <input class="form-control" type="date" data-date-format="mm/dd/yyyy" v-model="product.dateReady" />
+      </div>
+      <div class="form-group">
+        <label>Quantity Available</label>
+        <input class="form-control" placeholder="Enter quantity available" type="number" v-model="product.quantityReady" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" v-on:click="addProduct()">Add item</button>
+      </div>
+    </div>
+
+    <!-- Display items here -->
+    <div class="col-sm-6 col-md-6 col-lg-6">
+      <h3 v-if="products.length">Your list:</h3>
+
+      <ul v-for="(product,index) in products">
+        <li class="listItem">
+          <h3>{{product.name}}</h3>
+          <h4>{{product.price|dollar}}</h4>
+          <p class="text" v-if="product.description">Description: {{product.description}}</p>
+          <p class="text">Available after: {{product.dateReady}}</p>
+          <p class="text">Quantity available: {{product.quantityReady}}</p>
+          <div class="form-group">
+            <button class="btn btn-sm btn-danger" v-on:click="deleteProduct(index)">Delete</button>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+
+  <!--Latest view js -->
+  <script src="bower_components/vue/dist/vue.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
