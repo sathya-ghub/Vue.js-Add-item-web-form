@@ -36,6 +36,7 @@ Vue.component('sathya-list', {
 
 });
 
+//Vue instance
 new Vue({
     el: '#app',
 
@@ -45,8 +46,7 @@ new Vue({
             price: '',
             description: '',
             dateReady: '',
-            quantityReady: '',
-            index:''
+            quantityReady: ''    
         },
         products: []
     },
@@ -67,7 +67,7 @@ new Vue({
     methods: {
         //Add all properties of the product in currenct vue instance
         addProduct: function () {
-            if (this.product.name && this.product.price) {
+            if (this.product.name && this.product.price>0) {
                 this.products.push(this.product);
                 this.product = {
                     name: '',
@@ -76,6 +76,9 @@ new Vue({
                     dataReady: '',
                     quantityReady: ''
                 };
+            }
+            else {
+                alert("Enter an item name and price");
             }
         },
 
