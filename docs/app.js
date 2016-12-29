@@ -22,7 +22,7 @@ Vue.component('sathya-list', {
             return "€ " + value;
         },
         date: function (value) {
-            return moment(value).format("dddd, MMM Do YY");
+            return moment(value).format("dddd, MMM Do YYYY");
         }
     },
 
