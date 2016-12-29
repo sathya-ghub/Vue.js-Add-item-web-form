@@ -9,7 +9,7 @@ Vue.component('sathya-list', {
     '<p class="text">Available after: {{item.dateReady | date}}</p>' +
     '<p class="text">Quantity available: {{item.quantityReady}}</p>' +
     '<div class="form-group">' +
-    '<button class="btn btn-sm btn-danger" id="list" v-on:click="deleteItem()">Delete</button>' +
+    '<button class="btn btn-sm btn-danger" id="list" v-on:click="deleteItem(number)">Delete</button>' +
     '</div>' +
     '</li>' +
     '</ul>',
@@ -32,7 +32,7 @@ Vue.component('sathya-list', {
         }
     },
 
-    props: ['item']
+    props: ['item','number']
 
 });
 

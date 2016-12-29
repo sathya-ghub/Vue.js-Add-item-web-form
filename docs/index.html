@@ -47,7 +47,7 @@
     <div class="col-sm-6 col-md-6 col-lg-6">
       <h4 v-if="products.length">Your list:</h4>
       <!--Custom Component that iterates over all products-->
-      <sathya-list v-for="product in products" v-bind:item="product"></sathya-list>
+      <sathya-list v-for="(product,index) in products" v-bind:item="product" v-bind:number="index"></sathya-list>
     </div>
   </div>
 
