@@ -45,20 +45,8 @@
     <!-- Display items here -->
     <div class="col-sm-6 col-md-6 col-lg-6">
       <h4 v-if="products.length">Your list:</h4>
-
-      <ul v-for="(product,index) in products">
-        <li class="listItem">
-          <h3>{{product.name}}</h3>
-          <h4>{{product.price|dollar}}</h4>
-          <p class="text" v-if="product.description">Description: {{product.description}}</p>
-          <p class="text">Available after: {{product.dateReady | date}}</p>
-          <p class="text">Quantity available: {{product.quantityReady}}</p>
-          <div class="form-group">
-            <button class="btn btn-sm btn-danger" v-on:click="deleteProduct(index)">Delete</button>
-          </div>
-        </li>
-      </ul>
-
+      <!--Custom Component that iterates over all products-->
+      <sathya-list v-for="product in products" v-bind:item="product"></sathya-list>
     </div>
   </div>
 
