@@ -9,7 +9,7 @@ Vue.component('sathya-list', {
     '<p class="text">Available after: {{item.dateReady | date}}</p>' +
     '<p class="text">Quantity available: {{item.quantityReady}}</p>' +
     '<div class="form-group">' +
-    '<button class="btn btn-sm btn-danger" v-on:click="deleteItem()">Delete</button>' +
+    '<button class="btn btn-sm btn-danger" id="list" v-on:click="deleteItem()">Delete</button>' +
     '</div>' +
     '</li>' +
     '</ul>',
@@ -27,7 +27,7 @@ Vue.component('sathya-list', {
     },
 
     methods: {
-        deleteItem:function(index){
+        deleteItem: function (index) {
             this.$parent.deleteProduct(index);
         }
     },
@@ -46,9 +46,12 @@ new Vue({
             price: '',
             description: '',
             dateReady: '',
-            quantityReady: ''    
+            quantityReady: ''
         },
-        products: []
+
+        products: [],
+
+        userInfo: []
     },
 
     //Implementing a custom filter for currency and date
@@ -67,7 +70,7 @@ new Vue({
     methods: {
         //Add all properties of the product in currenct vue instance
         addProduct: function () {
-            if (this.product.name && this.product.price>0) {
+            if (this.product.name && this.product.price > 0) {
                 this.products.push(this.product);
                 this.product = {
                     name: '',
@@ -85,6 +88,18 @@ new Vue({
         //Deletes the product from the array of products
         deleteProduct: function (index) {
             this.products.splice(index, 1);
+        },
+
+        //sample restapi call from a dummy endpoint
+        getRest: function () {
+            axios.get('https://jsonplaceholder.typicode.com/posts', {
+                params: {
+                    id: 5
+                }
+            }).then(function (response) {
+                this.userInfo = response.data[0];
+                console.log("User's title is " + this.userInfo.title +" and body is "+ this.userInfo.body);
+            });
         }
     }
 });

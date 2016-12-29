@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title></title>
+  <title>Guidance Residential product page</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -35,12 +35,12 @@
       </div>
       <div class="form-group">
         <label>Quantity Available</label>
-        <input class="form-control" placeholder="Enter quantity available" min="0" type="number" v-model="product.quantityReady"
-        />
+        <input class="form-control" placeholder="Enter quantity available" min="0" type="number" v-model="product.quantityReady" />
       </div>
       <div class="form-group">
-        <button class="btn btn-primary" v-on:click="addProduct()">Add item</button>
-      </div>
+        <button class="btn btn-primary btn-lg btn-block" v-on:click="addProduct()">Add item</button>
+        <button class="btn btn-secondary btn-lg btn-block" v-on:click="getRest()">Get request example(see console)</button>
+      </div>     
     </div>
 
     <!-- Display items here -->
@@ -54,6 +54,7 @@
   <!--Latest view js -->
   <script src="bower_components/vue/dist/vue.js"></script>
   <script src="bower_components/moment/min/moment.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="app.js"></script>
 </body>
 
